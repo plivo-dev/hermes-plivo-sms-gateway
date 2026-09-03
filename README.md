@@ -125,12 +125,6 @@ configuration helpers. It needs no Hermes install and touches no network.
 - One Plivo number answers through one application, leaving the SMS and voice plugins unable to
   share a number
 - Uninstalling leaves the Plivo application and number wired to a gateway no longer running
-- Indian destinations need sender registration on the Plivo account before delivery succeeds
-
-## Related
-
-Outbound tools ship as `hermes-plivo-tools`, giving the agent `send_sms`, `make_call` and
-`lookup_number` without hosting a channel. The voice channel ships as `hermes-plivo-voice`.
 
 ## License
 

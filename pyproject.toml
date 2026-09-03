@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-plivo-sms"
+version = "0.1.0"
+description = "Real-time SMS channel plugin for Hermes Agent over Plivo. Enables communication with the agent over SMS."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Plivo" }]
+keywords = ["hermes", "hermes-agent", "plivo", "sms", "gateway", "plugin"]
+
+# The inbound gateway needs aiohttp, same as the bundled Hermes SMS adapter.
+dependencies = ["aiohttp>=3.8"]
+
+[project.urls]
+Homepage = "https://www.plivo.com/"
+
+# Hermes auto-discovers this plugin on startup via the entry point below.
+# The loader imports the module named as the value and calls its register(ctx).
+[project.entry-points."hermes_agent.plugins"]
+"plivo_sms-platform" = "hermes_plivo_sms"
+
+[tool.setuptools]
+packages = ["hermes_plivo_sms"]
+
+[tool.setuptools.package-data]
+hermes_plivo_sms = ["plugin.yaml"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Pinned explicitly so a ruff upgrade cannot change what CI enforces.
+select = ["E4", "E7", "E9", "F", "B", "SIM", "I", "RUF", "ASYNC"]

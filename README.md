@@ -20,7 +20,7 @@ Plivo-side configuration.
 
 | | |
 |---|---|
-| Hermes Agent | With the gateway. Python 3.10 or later |
+| Hermes Agent | With the gateway. Python 3.11 or later |
 | Plivo | An account and an SMS-capable number |
 
 `cloudflared` is fetched automatically when no public URL is configured.

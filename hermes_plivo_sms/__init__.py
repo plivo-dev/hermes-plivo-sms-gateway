@@ -6,8 +6,8 @@ number gets its own agent session, and replies go out through the Plivo
 Messages API.
 
 ``register(ctx)`` is the single entry point called by the Hermes plugin
-loader, whether this package is installed via the ``hermes_agent.plugins``
-pip entry point or dropped into ``~/.hermes/plugins/``.
+loader, for both an install through the ``hermes_agent.plugins`` pip entry
+point and a copy dropped into ``~/.hermes/plugins/``.
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ PLUGIN_ID = "plivo_sms"
 def register(ctx) -> None:
     """Register the Plivo SMS platform with the Hermes plugin context.
 
-    Lazy import so this package stays importable outside a Hermes runtime,
+    Lazy import, keeping the plugin importable outside a Hermes runtime,
     because the adapter imports ``gateway.*``. The gateway calls ``register``
     inside Hermes.
     """
